@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skyrooftop — Reserva de Data</title>
+<style>
+  :root{
+    --ink:#0b0e14;
+    --ink-2:#10161f;
+    --ink-3:#1a2230;
+    --paper:#f4f5f7;
+    --gold:#e8b94e;
+    --gold-soft:#f4c96a;
+    --gold-mute:#b98a32;
+    --muted:#9aa7b4;
+    --line:#26303e;
+    --serif:'Playfair Display', Georgia, serif;
+    --sans:'Inter', system-ui, -apple-system, sans-serif;
+    --maxw:1200px;
+    --radius:16px;
+    --shadow:0 20px 60px rgba(0,0,0,.45);
+    --one:1
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);
+    background:var(--ink);
+    color:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  ul{list-style:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,2.5vw,40px)}
+  
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,14,20,.82);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,.08)
+  }
+  .header-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:clamp(16px,3vw,48px)
+  }
+  .logo{
+    font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.5rem);
+    color:var(--gold);letter-spacing:.05em
+  }
+  .nav-links{
+    display:flex;gap:24px;font-size:.9rem;color:var(--paper)
+  }
+  .nav-links a:hover{color:var(--gold-soft)}
+  
+  /* Hero */
+  .hero{
+    position:relative;height:clamp(500px,80vh,800px);
+    background:linear-gradient(135deg,#0b0e14 0%,#10161f 50%,#1a2230 100%);
+    display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:clamp(30px,6vw,60px)
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:url("skyrooftop-hero.jpg") center/cover no-repeat;
+    opacity:.3
+  }
+  .hero-content{position:relative;z-index:1}
+  .hero-subtitle{font-size:clamp(1rem,1.5vw,1.25rem);color:var(--gold-soft);margin-bottom:20px}
+  .hero h1{
+    font-family:var(--serif);font-size:clamp(2.5rem,6vw,5rem);
+    color:var(--gold);margin-bottom:20px;line-height:1.1
+  }
+  .hero p{margin-bottom:30px;color:var(--paper-2);max-width:600px}
+  .btn-hero{
+    display:inline-block;background:var(--gold);color:#0b0e14;
+    padding:clamp(14px,20px,24px);border-radius:999px;text-decoration:none;
+    font-weight:700;font-size:1rem;transition:.3s
+  }
+  .btn-hero:hover{background:var(--gold-soft)}
+  
+  /* Reservation form */
+  .reserve-form{
+    max-width:700px;margin:0 auto;padding:clamp(20px,4vw,40px)
+  }
+  .field{display:grid;gap:6px}
+  .field label{font-size:13px;color:var(--muted);font-weight:500}
+  .field input,.field select,.field textarea{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.18);
+    color:#fff;border-radius:10px;padding:14px 16px;
+    font-family:var(--sans);font-size:15px;outline:none;transition:.2s;width:100%
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{
+    border-color:var(--gold);
+    box-shadow:0 0 0 3px rgba(232,185,78,.15)
+  }
+  .field select{
+    appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1 L6 6 L11 1' stroke='%239aa7b4' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 16px center;padding-right:42px
+  }
+  .field textarea{min-height:90px;resize:vertical}
+  
+  .form-actions{
+    display:flex;gap:14px;flex-wrap:wrap;margin-top:12px;
+    padding-top:20px;border-top:1px solid rgba(255,255,255,.08)
+  }
+  .btn-submit{
+    background:var(--gold);color:#0b0e14 !important;
+    border:none;padding:16px 32px;border-radius:999px;
+    font-weight:600;font-size:15px;cursor:pointer;transition:.25s;flex:1 1 220px
+  }
+  .btn-submit:hover{background:var(--gold-soft)}
+  .btn-submit:active{transform:scale(.98)}
+  
+  /* Footer */
+  footer{
+    text-align:center;padding:clamp(30px,5vw,50px);
+    border-top:1px solid rgba(255,255,255,.05);
+    color:var(--muted);font-size:.9rem
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-inner">
+    <div class="logo">Skyrooftop</div>
+    <nav class="nav-links">
+      <a href="#home">Início</a>
+      <a href="#reserve">Reserva</a>
+      <a href="#gallery">Galeria</a>
+    </nav>
+  </div>
+</header>
+
+<section id="home" class="hero">
+  <div class="hero-content">
+    <p class="hero-subtitle">Espaço de Eventos em Rooftop</p>
+    <h1>Bem-vindo ao Skyrooftop</h1>
+    <p>Um espaço exclusivo para confraternização, casamentos, aniversários e eventos especiais. Com vista para o céu e estrutura completa.</p>
+    <a href="#reserve" class="btn-hero">Agendar Sua Data</a>
+  </div>
+</section>
+
+<section id="reserve" class="reserve-form">
+  <h2>Reserva de Data</h2>
+  <p>Preencha o formulário abaixo e entraremos em contato em até 24 horas.</p>
+  
+  <form action="https://formsubmit.co/nenzocalegare@gmail.com" method="POST">
+    <p style="display:none"><label>Não preencha: <input name="bot-field"></label></p>
+    
+    <div class="field">
+      <label for="nome">Nome completo *</label>
+      <input id="nome" type="text" placeholder="Seu nome" required>
+    </div>
+    <div class="field">
+      <label for="telefone">Telefone *</label>
+      <input id="telefone" type="tel" placeholder="(11) 99999-9999" required>
+    </div>
+    <div class="field">
+      <label for="email">E-mail *</label>
+      <input id="email" type="email" placeholder="voce@exemplo.com" required>
+    </div>
+    <div class="field">
+      <label for="evento">Tipo de evento *</label>
+      <select id="evento" required>
+        <option value="">Selecione...</option>
+        <option>Confraternização</option>
+        <option>Casamento</option>
+        <option>Aniversário</option>
+        <option>Formatura</option>
+        <option>Outro</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="outro">Outro tipo (se selecionou "Outro")</label>
+      <input id="outro" type="text" placeholder="Descreva o tipo de evento">
+    </div>
+    <div class="field">
+      <label for="data">Data do evento *</label>
+      <input id="data" type="date" required>
+    </div>
+    <div class="field">
+      <label for="horario_inicio">Horário de início *</label>
+      <input id="horario_inicio" type="time" required>
+    </div>
+    <div class="field">
+      <label for="horario_fim">Horário de término *</label>
+      <input id="horario_fim" type="time" required>
+    </div>
+    <div class="field">
+      <label for="quantidade">Número de pessoas *</label>
+      <input id="quantidade" type="number" placeholder="Quantas pessoas?" min="1" max="999" required>
+    </div>
+    
+    <div class="form-actions">
+      <button type="submit" class="btn-submit">Enviar Reserva</button>
+    </div>
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2026 Skyrooftop — Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=cb715385-383d-4df4-8e96-1d3686033e92
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Skyrooftop — Espaço de Eventos em Rooftop</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+
+  :root{
+
+    --ink:#0b0e14;
+
+    --ink-2:#10161f;
+
+    --ink-3:#1a2230;
+
+    --paper:#f4f5f7;
+
+    --gold:#e8b94e;
+
+    --gold-soft:#f4c96a;
+
+    --gold-mute:#b98a32;
+
+    --muted:#9aa7b4;
+
+    --line:#26303e;
+
+    --serif:'Playfair Display', Georgia, serif;
+
+    --sans:'Inter', system-ui, -apple-system, sans-serif;
+
+    --maxw:1200px;
+
+    --radius:16px;
+
+    --shadow:0 20px 60px rgba(0,0,0,.45);
+
+    --one:1
+
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+
+  html{scroll-behavior:smooth}
+
+  body{
+
+    font-family:var(--sans);
+
+    background:var(--ink);
+
+    color:var(--paper);
+
+    line-height:1.6;
+
+    -webkit-font-smoothing:antialiased;
+
+    overflow-x:hidden
+
+  }
+
+  a{color:inherit;text-decoration:none}
+
+  img{max-width:100%;display:block}
+
+  ul{list-style:none}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,2.5vw,40px)}
+
+
+
+  /* ---- header ---- */
+
+  header{
+
+    position:sticky;top:0;z-index:50;
+
+    background:rgba(11,14,20,.82);
+
+    backdrop-filter:blur(14px);
+
+    border-bottom:1px solid rgba(255,255,255,.08)
+
+  }
+
+  .nav{
+
+    height:72px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px
+
+  }
+
+  .logo{font-family:var(--serif);font-weight:700;font-size:22px;letter-spacing:.5px}
+
+  .logo .dot{color:var(--gold)}
+
+  .logo-area{display:flex;align-items:center;gap:12px}
+
+  .logo-img{width:38px;height:38px;border-radius:50%;object-fit:cover}
+
+  .nav-links{display:flex;gap:28px;font-size:14px;letter-spacing:.4px}
+
+  .nav-links a{color:#cfd8e0}
+
+  .nav-links a:hover{color:var(--gold-soft)}
+
+  .nav-cta{
+
+    background:var(--gold);
+
+    color:var(--ink) !important;
+
+    padding:12px 22px;
+
+    border-radius:999px;
+
+    font-weight:600;
+
+    font-size:14px
+
+  }
+
+  .nav-cta:hover{color:var(--ink) !important;background:var(--gold-soft)}
+
+  .hamburger{
+
+    display:none;
+
+    flex-direction:column;
+
+    gap:5px;
+
+    cursor:pointer;
+
+    background:none;border:none;
+
+    padding:8px
+
+  }
+
+  .hamburger span{width:26px;height:2px;background:#fff;border-radius:2px;transition:.3s}
+
+  .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+
+  .hamburger.open span:nth-child(2){opacity:0}
+
+  .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+
+
+  /* ---- hero ---- */
+
+  .hero{
+
+    position:relative;
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    background:
+
+      radial-gradient(120% 80% at 75% 10%, rgba(232,185,78,.14), transparent 60%),
+
+      radial-gradient(90% 90% at 10% 90%, rgba(232,185,78,.08), transparent 55%),
+
+      linear-gradient(180deg, #070a10 0%, #0b0e14 45%, #10161f 100%)
+
+  }
+
+  .hero::before{
+
+    content:"";position:absolute;inset:0;
+
+    background:
+
+      radial-gradient(2px 2px at 12% 20%, rgba(255,255,255,.5), transparent),
+
+      radial-gradient(2px 2px at 25% 45%, rgba(255,255,255,.35), transparent),
+
+      radial-gradient(2px 2px at 42% 15%, rgba(255,255,255,.45), transparent),
+
+      radial-gradient(2px 2px at 60% 70%, rgba(255,255,255,.3), transparent),
+
+      radial-gradient(2px 2px at 78% 30%, rgba(255,255,255,.4), transparent),
+
+      radial-gradient(2px 2px at 92% 60%, rgba(255,255,255,.35), transparent)
+
+    ;
+
+    pointer-events:none
+
+  }
+
+  .hero::after{
+
+    content:"";position:absolute;inset:0;
+
+    background:radial-gradient(50% 40% at 80% 92%, rgba(232,185,78,.10), transparent 60%)
+
+  }
+
+  .hero-inner{
+
+    position:relative;z-index:2;
+
+    display:grid;
+
+    grid-template-columns:1.15fr .85fr;
+
+    gap:48px;
+
+    align-items:center;
+
+    padding:clamp(56px,10vh,110px) 0
+
+  }
+
+  .eyebrow{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    background:rgba(232,185,78,.12);
+
+    border:1px solid rgba(232,185,78,.35);
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:var(--gold-soft)
+
+  }
+
+  .eyebrow::before{content:"";width:24px;height:1px;background:var(--gold)}
+
+  .hero h1{
+
+    font-family:var(--serif);
+
+    font-weight:700;
+
+    font-size:clamp(52px,7vw,118px);
+
+    line-height:1.02;
+
+    letter-spacing:.2px;
+
+    margin:22px 0 20px
+
+  }
+
+  .hero h1 .s2{color:var(--gold)}
+
+  .hero p.sub{
+
+    font-size:clamp(16px,1.6vw,20px);
+
+    color:var(--muted);
+
+    max-width:520px;
+
+    line-height:1.7;
+
+    margin-bottom:34px
+
+  }
+
+  .hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+
+  .btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:16px 28px;
+
+    border-radius:999px;
+
+    font-weight:600;
+
+    font-size:15px;
+
+    transition:.25s;
+
+    cursor:pointer;
+
+    border:1px solid transparent
+
+  }
+
+  .btn-white{background:var(--paper);color:var(--ink)}
+
+  .btn-white:hover{background:#fff}
+
+  .btn-gold{background:var(--gold);color:var(--ink)}
+
+  .btn-gold:hover{background:var(--gold-soft)}
+
+  .hero-foot{
+
+    position:relative;z-index:2;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:56px;
+
+    padding-top:22px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    font-size:13px;
+
+    color:var(--muted)
+
+  }
+
+
+
+  /* ---- landscape accent ---- */
+
+  .landscape{
+
+    position:relative;
+
+    border-radius:var(--radius);
+
+    overflow:hidden;
+
+    min-height:240px;
+
+    box-shadow:var(--shadow);
+
+    margin-top:60px
+
+  }
+
+  .landscape .tint{
+
+    position:absolute;inset:0;
+
+    background:linear-gradient(180deg, rgba(232,185,78,.45), rgba(11,14,20,.4))
+
+  }
+
+  .landscape .badge{
+
+    position:absolute;top:22px;left:22px;
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:var(--gold-soft)
+
+  }
+
+  .landscape .badge b{color:var(--gold);font-weight:700;letter-spacing:0}
+
+  .landscape-img{
+
+    width:65%;
+
+    height:auto;
+
+    display:block;
+
+    border-radius:var(--radius);
+
+    margin: 0 auto;
+
+  }
+
+
+
+  /* ---- section spacing ---- */
+
+  section{padding:clamp(64px,9vh,96px) 0}
+
+  .section-label{
+
+    font-size:13px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    color:var(--gold);
+
+    margin-bottom:14px
+
+  }
+
+  .section-title{
+
+    font-family:var(--serif);
+
+    font-weight:700;
+
+    font-size:clamp(30px,4vw,48px);
+
+    line-height:1.15;
+
+    margin-bottom:18px;
+
+    letter-spacing:-.3px
+
+  }
+
+  .section-sub{color:var(--muted);max-width:640px;line-height:1.7;margin-bottom:34px}
+
+
+
+  /* ---- about ---- */
+
+  .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+
+  .about-text p:first-of-type::before{
+
+    content:"";display:block;
+
+    width:48px;height:2px;background:var(--gold);
+
+    margin-bottom:14px
+
+  }
+
+  .about-features{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+
+  .about-features div{
+
+    display:flex;
+
+    gap:12px;
+
+    align-items:center;
+
+    padding:14px 16px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:12px;
+
+    font-size:14px
+
+  }
+
+  .about-features span svg{width:20px;height:20px;color:var(--gold)}
+
+  .about-features span{color:var(--muted);flex:1;font-size:14px}
+
+
+
+  /* ---- events ---- */
+
+  .events{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+
+  .event-card{
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:var(--radius);
+
+    padding:24px;
+
+    transition:.3s;
+
+    cursor:default
+
+  }
+
+  .event-card:hover{background:rgba(232,185,78,.06);border-color:rgba(232,185,78,.3)}
+
+  .event-card .date{
+
+    font-size:12px;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+
+    color:var(--gold);
+
+    margin-bottom:12px
+
+  }
+
+  .event-card h3{font-family:var(--serif);font-weight:700;font-size:22px;line-height:1.2;margin-bottom:10px}
+
+  .event-card p{font-size:14px;color:var(--muted);line-height:1.6}
+
+  .event-card .tag{
+
+    display:inline-block;
+
+    margin-top:14px;
+
+    font-size:12px;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    background:rgba(232,185,78,.12);
+
+    color:var(--gold-soft);
+
+    letter-spacing:1px
+
+  }
+
+
+
+  /* ---- gallery ---- */
+
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+
+  .gallery-item{
+
+    position:relative;
+
+    border-radius:var(--radius);
+
+    overflow:hidden;
+
+    aspect-ratio:4/3;
+
+    background:var(--ink-3)
+
+  }
+
+  .gallery-item .img{
+
+    position:absolute;inset:0;
+
+    width:100%;height:100%;object-fit:cover
+
+  }
+
+  .gallery-item .txt{
+
+    position:absolute;inset:0;
+
+    background:linear-gradient(180deg, rgba(11,14,20,.85), rgba(11,14,20,.3));
+
+    opacity:0;
+
+    transition:.3s;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-end;
+
+    padding:22px
+
+  }
+
+  .gallery-item:hover .txt{opacity:1}
+
+  .gallery-item .txt h4{font-family:var(--serif);font-weight:600;font-size:19px;line-height:1.2}
+
+  .gallery-item .txt p{font-size:13px;color:var(--muted);font-weight:400}
+
+  .gallery-item .num{
+
+    position:absolute;top:14px;right:14px;
+
+    width:40px;height:40px;
+
+    border-radius:50%;
+
+    background:rgba(232,185,78,.15);
+
+    color:var(--gold);
+
+    font-weight:700;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center
+
+  }
+
+  .gallery-item:nth-child(1) .img{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Cdefs%3E%3CradialGradient id='a' cx='50%%' cy='45%%' r='50%%'%3E%3Cstop offset='0%%' stop-color='%23e8b94e40'/%3E%3Cstop offset='100%%' stop-color='%230b0e1400'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='800' height='600' fill='%230b0e14'/%3E%3Crect width='800' height='600' fill='url(%23a)'/%3E%3Ccircle cx='640' cy='140' r='220' fill='%23e8b94e1f'/%3E%3Cpath d='M0 480 L80 360 L180 420 L280 300 L400 380 L520 300 L640 390 L760 320 L800 360 L800 600 L0 600 Z' fill='%230d121c'/%3E%3C/svg%3E");}
+
+  .gallery-item:nth-child(2) .img{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Cdefs%3E%3CradialGradient id='b' cx='50%%' cy='50%%' r='50%%'%3E%3Cstop offset='0%%' stop-color='%23f4c96a30'/%3E%3Cstop offset='100%%' stop-color='%230b0e1400'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='800' height='600' fill='%230b0e14'/%3E%3Crect width='800' height='600' fill='url(%23b)'/%3E%3Cpath d='M0 500 L100 400 L220 470 L340 360 L480 440 L620 340 L780 420 L800 380 L800 600 L0 600 Z' fill='%230d121c'/%3E%3C/svg%3E");}
+
+  .gallery-item:nth-child(3) .img{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Cdefs%3E%3CradialGradient id='c' cx='50%%' cy='50%%' r='50%%'%3E%3Cstop offset='0%%' stop-color='%23e8b94e25'/%3E%3Cstop offset='100%%' stop-color='%230b0e1400'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='800' height='600' fill='%230b0e14'/%3E%3Crect width='800' height='600' fill='url(%23c)'/%3E%3Ccircle cx='140' cy='400' r='180' fill='%23e8b94e15'/%3E%3C/svg%3E");}
+
+  .gallery-item:nth-child(4) .img{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Cdefs%3E%3CradialGradient id='d' cx='50%%' cy='40%%' r='50%%'%3E%3Cstop offset='0%%' stop-color='%23f4c96a2a'/%3E%3Cstop offset='100%%' stop-color='%230b0e1400'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='800' height='600' fill='%230b0e14'/%3E%3Crect width='800' height='600' fill='url(%23d)'/%3E%3Cpath d='M0 520 L120 420 L260 490 L400 380 L560 470 L700 390 L800 430 L800 600 L0 600 Z' fill='%230d121c'/%3E%3C/svg%3E");}
+
+
+
+  /* ---- contact ---- */
+
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+
+  .contact-info h2{font-family:var(--serif);font-weight:700;font-size:clamp(30px,3vw,44px);line-height:1.2;margin-bottom:18px}
+
+  .contact-info p{color:var(--muted);line-height:1.7;margin-bottom:24px}
+
+  .contact-info .item{
+
+    display:flex;
+
+    gap:16px;
+
+    margin-bottom:18px;
+
+    align-items:center
+
+  }
+
+  .contact-info .item .ic{
+
+    width:44px;height:44px;
+
+    border-radius:12px;
+
+    background:rgba(232,185,78,.12);
+
+    color:var(--gold);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:18px
+
+  }
+
+  .contact-info .item .ic svg{width:22px;height:22px}
+
+  .contact-info .item .t{font-size:14px;font-weight:600;color:#fff}
+
+  .contact-info .item .v{font-size:14px;color:var(--muted)}
+
+  .contact-form form{display:grid;gap:18px}
+
+  .field{display:grid;gap:6px}
+
+  .field label{font-size:13px;color:var(--muted);font-weight:500}
+
+  .field input, .field select, .field textarea{
+
+    background:#000;
+
+    border:1px solid rgba(255,255,255,.18);
+
+    color:#fff;
+
+    border-radius:10px;
+
+    padding:14px 16px;
+
+    font-family:var(--sans);
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:.2s
+
+  }
+
+  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--gold)}
+
+  .field input::placeholder, .field textarea::placeholder{color:#5a6675}
+
+  .field textarea{min-height:110px;resize:vertical}
+
+  .field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1 L6 6 L11 1' stroke='%239aa7b4' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:42px}
+
+  .form-actions{
+
+    display:flex;
+
+    gap:14px;
+
+    margin-top:8px;
+
+    flex-wrap:wrap
+
+  }
+
+  .btn-submit{
+
+    background:var(--gold);
+
+    color:var(--ink) !important;
+
+    border:none;
+
+    padding:16px 30px;
+
+    border-radius:999px;
+
+    font-weight:600;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:.25s
+
+  }
+
+  .btn-submit:hover{background:var(--gold-soft)}
+
+
+
+  /* ---- reservation form ---- */
+
+  .reserve-section{
+
+    padding:clamp(64px,9vh,96px) 0;
+
+    background:var(--ink-2)
+
+  }
+
+  .reserve-section .section-label{
+
+    font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);
+
+    margin-bottom:14px
+
+  }
+
+  .reserve-section .section-title{
+
+    font-family:var(--serif);font-weight:700;font-size:clamp(30px,4vw,48px);
+
+    line-height:1.15;margin-bottom:18px;letter-spacing:-.3px
+
+  }
+
+  .reserve-section .sub{
+
+    max-width:600px;margin-bottom:32px;font-size:15px;color:var(--muted)
+
+  }
+
+  .reserve-form .field{
+
+    margin-bottom:20px
+
+  }
+
+  .reserve-form label{
+
+    display:block;font-size:13px;font-weight:600;color:var(--gold);
+
+    margin-bottom:8px;letter-spacing:1px
+
+  }
+
+  .reserve-form input[type=text],
+
+  .reserve-form input[type=tel],
+
+  .reserve-form input[type=email],
+
+  .reserve-form input[type=date],
+
+  .reserve-form input[type=time],
+
+  .reserve-form input[type=number],
+
+  .reserve-form select{
+
+    width:100%;padding:14px 16px;border-radius:8px;
+
+    background:var(--ink);color:#fff;border:1px solid var(--line);
+
+    font-size:15px;box-sizing:border-box
+
+  }
+
+  .reserve-form input:focus,
+
+  .reserve-form select:focus{
+
+    outline:none;border-color:var(--gold);box-shadow:0 0 0 2px rgba(232,185,78,.2)
+
+  }
+
+  .reserve-form select{
+
+    cursor:pointer
+
+  }
+
+  .reserve-form .form-actions{
+
+    display:flex;justify-content:center;margin-top:24px
+
+  }
+
+  .reserve-form .btn-submit{
+
+    padding:16px 36px;font-size:16px
+
+  }
+
+  .reserve-form .btn-submit:hover{background:var(--gold-soft)}
+
+
+
+  /* footer */
+
+  footer{
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    padding:48px 0 32px;
+
+    background:var(--ink-2)
+
+  }
+
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px}
+
+  .footer-brand p{font-size:14px;color:var(--muted);margin-top:14px;line-height:1.7}
+
+  .footer h4{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+
+  .footer ul{display:grid;gap:10px}
+
+  .footer ul a{color:var(--muted);font-size:14px}
+
+  .footer ul a:hover{color:var(--gold-soft)}
+
+  .footer-bottom{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:36px;
+
+    padding-top:22px;
+
+    border-top:1px solid rgba(255,255,255,.06);
+
+    font-size:13px;
+
+    color:var(--muted)
+
+  }
+
+
+
+  /* ---- reveal animation ---- */
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+
+  .reveal.visible{opacity:1;transform:none}
+
+
+
+  /* ---- responsive ---- */
+
+  @media (max-width:1024px){
+
+    .hero-grid{grid-template-columns:1fr;gap:32px}
+
+    .landscape{min-height:180px;margin-top:40px}
+
+    .about-grid{grid-template-columns:1fr}
+
+    .about-features{grid-template-columns:1fr 1fr;gap:10px}
+
+    .events{grid-template-columns:1fr 1fr}
+
+    .gallery{grid-template-columns:repeat(2,1fr)}
+
+    .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+
+  }
+
+  @media (max-width:768px){
+
+    .nav-links{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;background:rgba(11,14,20,.97);padding:24px 28px;gap:18px;border-bottom:1px solid rgba(255,255,255,.08);border-top:1px solid rgba(255,255,255,.08)}
+
+    .nav-links.open{display:flex}
+
+    .nav-cta{width:100%}
+
+    .hamburger{display:flex}
+
+    .hero{padding:clamp(48px,8vh,80px) 0}
+
+    .hero-btns{flex-direction:column;align-items:stretch}
+
+    .btn{padding:16px 24px;width:100%}
+
+    .events{grid-template-columns:1fr}
+
+    .gallery{grid-template-columns:1fr 1fr;gap:12px}
+
+    .gallery-item .txt{padding:16px}
+
+    .contact-grid{grid-template-columns:1fr;gap:32px}
+
+    .footer-grid{grid-template-columns:1fr;gap:24px;text-align:center}
+
+    .footer-bottom{flex-direction:column;gap:14px;text-align:center}
+
+  }
+
+  @media (prefers-reduced-motion:reduce){
+
+    .reveal{opacity:1;transform:none;transition:none}
+
+    html{scroll-behavior:auto}
+
+  }
+
+</style>
+
+</head>
+
+<body>
+
+
+
+<!-- ==== HEADER ==== -->
+
+<header>
+
+  <div class="wrap nav">
+
+      <a href="#inicio" class="logo">Sky<span class="dot">rooftop</span></a>
+
+      <ul class="nav-links" id="navLinks">
+
+        <li><a href="#inicio">Início</a></li>
+
+        <li><a href="#reserva-landing">Reserva</a></li>
+
+        <li><a href="#sobre">Sobre</a></li>
+
+        <li><a href="#galeria">Galeria</a></li>
+
+        <li><a href="#contato">Contato</a></li>
+
+      </ul>
+
+    <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+
+      <span></span><span></span><span></span>
+
+    </button>
+
+  </div>
+
+</header>
+
+
+
+<!-- ==== HERO ==== -->
+
+<section class="hero" id="inicio">
+
+  <div class="wrap">
+
+    <div class="hero-inner">
+
+      <div class="reveal">
+
+        <span class="eyebrow">⭐ Novo espaço — visitas agendadas</span>
+
+        <h1>Viva o evento<br>que <span class="s2">anda pra cima</span><br>do céu.</h1>
+
+        <p>Skyrooftop é um espaço privilegiado nas escadas do céu, feito para criar momentos únicos com vista para o horizonte, luz e design.</p>
+
+        <div class="hero-btns">
+
+            <a class='btn btn-gold' href='/reserva'>Reservar agora</a>
+
+        </div>
+
+        
+
+        </div>
+
+      <div class="landscape reveal">
+
+        <div class="tint"></div>
+
+        <div class="badge"><b>Rooftop</b> · São Paulo</div>
+
+        <img class="landscape-img" src="skyrooftop-hero.jpg" alt="Foto do Skyrooftop">
+
+      </div>
+
+      
+
+    </div>
+
+    <div class="hero-foot">
+
+      <span>✦ Dúvidas? 11 95353-1657</span>
+
+      <span>© 2026 Skyrooftop — todos os direitos reservados.</span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ==== RESERVA ==== -->
+
+<section id="reserva-landing">
+
+  <div class="wrap">
+
+    <div class="reserve-section">
+
+      <div class="text-center" style="text-align:center">
+
+        <p class="section-label">Agende seu evento</p>
+
+        <h2 class="section-title">Reserva de data</h2>
+
+        <p class="sub">Preencha o formulário abaixo e nossa equipe entrará em contato para confirmar sua data.</p>
+
+      </div>
+
+      <div class="reserve-form">
+
+        <form id="reserveForm" method="POST" name="reserva" data-netlify="true" netlify-honeypot="bot-field">
+  <input type="hidden" name="form-name" value="reserva">
+  <p style="display:none"><label>Não preencha: <input name="bot-field"></label></p>
+
+          <div class="field">
+
+            <label for="nome">Nome completo</label>
+
+            <input id="nome" name="nome" type="text" placeholder="Seu nome" required>
+
+          </div>
+
+          <div class="field">
+
+            <label for="telefone">Telefone</label>
+
+            <input id="telefone" name="telefone" type="tel" placeholder="(11) 99999-9999" required>
+
+          </div>
+
+          <div class="field">
+
+            <label for="email">E-mail</label>
+
+            <input id="email" name="email" type="email" placeholder="voce@exemplo.com" required>
+
+          </div>
+
+          <div class="field">
+
+            <label for="evento">Tipo de evento</label>
+
+            <select id="evento" name="evento">
+
+              <option value="">Selecione...</option>
+
+              <option>Aniversário</option>
+
+              <option>Casamento</option>
+
+              <option>Confraternização</option>
+
+              <option>Formatura</option>
+
+              <option>Outro</option>
+
+            </select>
+
+          </div>
+
+          <div class="field" id="outro-field" style="display:none">
+
+            <label for="outro">Descreva o tipo de evento</label>
+
+            <input id="outro" name="outro" type="text" placeholder="Se 'Outro', descreva">
+
+          </div>
+
+          <div class="field">
+
+            <label for="data">Data do evento</label>
+
+            <input id="data" name="data" type="date" required>
+
+          </div>
+
+          <div class="field">
+
+            <label for="horario_inicio">Horário de início</label>
+
+            <input id="horario_inicio" name="horario_inicio" type="time" required>
+
+          </div>
+
+          <div class="field">
+
+            <label for="horario_fim">Horário de término</label>
+
+            <input id="horario_fim" name="horario_fim" type="time" required>
+
+          </div>
+
+          <div class="field">
+
+            <label for="quantidade">Número de pessoas</label>
+
+            <input id="quantidade" name="quantidade" type="number" placeholder="Quantas pessoas?" min="1" max="999" required>
+
+          </div>
+
+          <div class="form-actions">
+
+            <button type="submit" class="btn btn-submit">Enviar reserva</button>
+
+          </div>
+
+        </form>
+
+      </div>
+
+      
+
+    </div>    
+
+    </div>
+
+</section>
+
+
+
+<!-- ==== SOBRE ==== -->
+
+<section id="sobre">
+
+  <div class="wrap">
+
+    <div class="about-grid">
+
+      <div class="about-text reveal">
+
+        <p class="section-sub" style="max-width:640px">Um espaço pensado em promover eventos que admiram o céu. A arquitetura, a fachada cruzada, a luz e o espaço ao ar livre formam um cenário único para todo tipo de ocasião.</p>
+
+        <strong style="display:block;color:var(--gold);font-size:14px;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px">O que o Skyrooftop oferece</strong>
+
+        <div class="about-features">
+
+          <div><span>🏙️</span> Vista para o céu e a cidade em cada detalhe.</div>
+
+          <div><span>💡</span> Iluminação projetada para o meio noite.</div>
+
+          <div><span>🪑</span> Decoração e estrutura pronta para eventos.</div>
+
+          <div><span>🗣️</span> Área para networking e palestras ao ar livre.</div>
+
+        </div>
+
+        
+
+        </div>
+
+      <div class="landscape reveal" style="margin-top:0">
+
+        <div class="tint"></div>
+
+        <div class="badge"><b>Arquitetura</b> · projeto</div>
+
+        <img class="landscape-img" src="img/02.jpg" alt="Fachada do Skyrooftop">
+
+      </div>
+
+      
+
+    </div>    
+
+    </div>
+
+</section>
+
+
+
+<!-- ==== GALERIA ==== -->
+
+<section id="galeria" style="background:var(--ink-2);border-top:1px solid rgba(255,255,255,.05)">
+
+  <div class="wrap">
+
+    <div class="text-center" style="text-align:center">
+
+      <p class="section-label">Galerias</p>
+
+      <h2 class="section-title">Estilo no ar</h2>
+
+    </div>
+
+    <div class="gallery">
+
+      <div class="gallery-item reveal">
+
+        <img class="img" src="img/01.jpg" alt="Iluminação do Skyrooftop">
+
+        <div class="txt"><h4>Iluminação</h4><p>Cenografia em escala de ouro</p></div>
+
+        <div class="num">1</div>
+
+      </div>
+
+      <div class="gallery-item reveal">
+
+        <img class="img" src="img/02.jpg" alt="Fuga ao ar livre do Skyrooftop">
+
+        <div class="txt"><h4>Fuga ao ar livre</h4><p>Espaço aberto para os maiores eventos</p></div>
+
+        <div class="num">2</div>
+
+      </div>
+
+      <div class="gallery-item reveal">
+
+        <img class="img" src="img/03.jpg" alt="Design do Skyrooftop">
+
+        <div class="txt"><h4>Design</h4><p>Paz de olhos com a cidade</p></div>
+
+        <div class="num">3</div>
+
+      </div>
+
+      <div class="gallery-item reveal">
+
+        <img class="img" src="img/04.jpg" alt="Sucesso dos eventos do Skyrooftop">
+
+        <div class="txt"><h4>Sucesso</h4><p>Eventos que marcam a memória</p></div>
+
+        <div class="num">4</div>
+
+      </div>
+
+      <div class="gallery-item reveal">
+
+        <img class="img" src="skyrooftop-hero.jpg" alt="Skyrooftop em destaque">
+
+        <div class="txt"><h4>Nova foto</h4><p>Foto do evento em destaque</p></div>
+
+        <div class="num">5</div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section></section>
+
+
+
+<!-- ==== CONTATO ==== -->
+
+<section id="contato">
+
+  <div class="wrap">
+
+    <div class="contact-grid">
+
+      <div class="contact-info reveal">
+
+        <p class="section-label">Contato</p>
+
+        <h2 class="section-title">Fale com a gente</h2>
+
+        <p>Estamos aqui para transformar a visão do seu evento em realidade. Mande uma mensagem, respondemos em breve.</p>
+
+        <div class="item">
+
+          <div class="ic">📞</div>
+
+          <div class="t">Telefone</div>
+
+          <div class="v">11 95353-1657</div>
+
+        </div>
+
+        <div class="item">
+
+          <div class="ic">✉️</div>
+
+          <div class="t">E-mail</div>
+
+          <div class="v">nenzocalegare@gmail.com</div>
+
+        </div>
+
+        <div class="item">
+
+          <div class="ic">📍</div>
+
+          <div class="t">Endereço</div>
+
+          <div class="v">Rua Luiz Gama, 43 - 7º andar, Centro de Guarulhos</div>
+
+        </div>
+
+      </div>
+
+      <div class="contact-form reveal">
+
+        <p class="section-label">Envie uma mensagem</p>
+
+        <h2 class="section-title">Mande uma mensagem</h2>
+
+        <p class="sub">Preencha os dados abaixo que entraremos em contato o mais rápido possível.</p>
+
+        <form name="contato" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+  <input type="hidden" name="form-name" value="contato">
+  <p style="display:none"><label>Não preencha: <input name="bot-field"></label></p>
+
+          <div class="field">
+
+            <label for="nome">Nome completo</label>
+
+            <input id="nome" type="text" placeholder="Seu nome" required>
+
+          </div>
+
+          <div class="field">
+
+            <label for="telefone">Telefone</label>
+
+            <input id="telefone" type="tel" placeholder="(11) 99999-9999" required>
+
+          </div>
+
+          <div class="field">
+
+            <label for="email">E-mail</label>
+
+            <input id="email" type="email" placeholder="voce@exemplo.com" required>
+
+          </div>
+
+          <div class="field">
+
+            <label for="mensagem">Mensagem</label>
+
+            <textarea id="mensagem" placeholder="Como podemos ajudar?" required></textarea>
+
+          </div>
+
+          <div class="form-actions">
+
+            <button type="submit" class="btn btn-submit">Enviar mensagem</button>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ==== FOOTER ==== -->
+
+<footer>
+
+  <div class="wrap">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+
+        <div class="logo" style="font-size:22px"><span class="dot">S</span>kyrooftop</div>
+
+        <p>Espaço de eventos em rooftop com vista para o céu. Entre na lista de espera e receba primeiro as novidades do espaço.</p>
+
+      </div>
+
+      <div class="footer">
+
+        <h4>Navegação</h4>
+
+        <ul>
+
+          <li><a href="#inicio">Início</a></li>
+
+          <li><a href="#reserva-landing">Reserva</a></li>
+
+          <li><a href="#sobre">Sobre</a></li>
+
+          <li style="color:var(--muted)">Galeria</li>
+
+        </ul>
+
+      </div>
+
+      <div class="footer">
+
+        <h4>Contato</h4>
+
+        <ul>
+
+          <li><a href="tel:+5511953531657">11 95353-1657</a></li>
+
+          <li><a href="mailto:nenzocalegare@gmail.com">nenzocalegare@gmail.com</a></li>
+
+        </ul>
+
+      </div>
+
+      
+
+    </div>
+
+    <div class="footer-bottom">
+
+      <span>✦ Skyrooftop — Rua Luiz Gama, 43 7º andar - Centro de Guarulhos</span>
+
+      <span>© 2026 Todos os direitos reservados.</span>
+
+    </div>
+
+    
+
+    </div>
+
+</footer>
+
+
+
+<script>
+
+  // mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    hamburger.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('open');
+    });
+  });
+
+  // reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:.12});
+  revealEls.forEach(el => io.observe(el));
+
+  // reservation form - uses Netlify Forms
+  // The form is configured with data-netlify="true" for automatic email delivery
+  // Email is sent to: nenzocalegare@gmail.com
+
+  // show outro field when 'Outro' is selected
+  const selectEvento = document.getElementById('evento');
+  const outroField = document.getElementById('outro-field');
+  selectEvento.addEventListener('change', (e) => {
+    if (e.target.value === 'Outro') {
+      outroField.style.display = 'block';
+    } else {
+      outroField.style.display = 'none';
+    }
+  });
+
+</script>
+
+</body>
+
+</html>
+

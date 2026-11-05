@@ -354,7 +354,7 @@
         </div>
 
         <div class="reserve-form">
-          <form name="reserva" method="POST" action="https://formsubmit.co/nenzocalegare@gmail.com?subject=Skyrooftop%20Reserva">
+          <form name="reserva" method="POST" action="/api/salvar-reserva">
   <input type="hidden" name="form-name" value="reserva">
   <p style="display:none"><label>Não preencha: <input name="bot-field"></label></p>
             <div class="field">
@@ -508,8 +508,40 @@
     outroInput.classList.toggle('show', eventoSelect.value === 'Outro');
   });
 
-  // reservation form - submit normally to formsubmit.co
-  // Form data will be sent as standard form POST to formsubmit.co
+  // reservation form - envia dados para a função salvar-reserva (WhatsApp Cloud API)
+  const form = document.querySelector('form[name="reserva"]');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const dados = {
+        nome: form.nome.value,
+        telefone: form.telefone.value,
+        email: form.email.value,
+        evento: form.evento.value,
+        outro: form.outro.value,
+        data: form.data.value,
+        horario_inicio: form.horario_inicio.value,
+        horario_fim: form.horario_fim.value,
+        quantidade: form.quantidade.value
+      };
+      try {
+        const resp = await fetch('/api/salvar-reserva', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(dados)
+        });
+        const resultado = await resp.json();
+        if (resultado.success) {
+          alert('✅ Reserva enviada! Em breve entraremos em contato.');
+          form.reset();
+        } else {
+          alert('❌ Erro ao enviar: ' + (resultado.error || 'Tente novamente.'));
+        }
+      } catch (err) {
+        alert('❌ Erro de conexão: ' + err.message);
+      }
+    });
+  }
 </script>
 </body>
 </html>

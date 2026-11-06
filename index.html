@@ -693,6 +693,14 @@
 
   .contact-form form{display:grid;gap:18px}
 
+  .whatsapp-btn{display:block;text-align:center;padding:30px 0}
+
+  .whatsapp-btn a{display:inline-block;padding:18px 32px;background:#25D366;color:#fff;border-radius:50px;font-weight:bold;font-size:16px;text-decoration:none;box-shadow:0 4px 6px rgba(0,0,0,0.1);text-align:center;max-width:100%}
+
+  .whatsapp-btn a:hover{background:#1ebe5a}
+
+  .field{display:grid;gap:6px}
+
   .field{display:grid;gap:6px}
 
   .field label{font-size:13px;color:var(--muted);font-weight:500}
@@ -1089,106 +1097,25 @@
 
       </div>
 
-      <div class="reserve-form">
+      <div class="contact-form">
 
-        <form action="https://formsubmit.co/nenzocalegare@gmail.com" method="POST">
-  <input type="hidden" name="form-name" value="reserva">
-  <p style="display:none"><label>Não preencha: <input name="bot-field"></label></p>
+        <p class="section-label">Para fazer sua reserva, fale diretamente com a gente</p>
 
-          <div class="field">
+        <h2 class="section-title">Reserva pelo WhatsApp</h2>
 
-            <label for="nome">Nome completo</label>
+        <p class="sub">Clique no botão abaixo e converse diretamente conosco. O seu atendimento será imediato.</p>
 
-            <input id="nome" name="nome" type="text" placeholder="Seu nome" required>
+        <div class="whatsapp-btn">
 
-          </div>
+          <a href="https://wa.me/5511975696266?text=Ol%C3%A1!%20Gostaria%20de%20reservar%20uma%20data%20no%20Skyrooftop.%20Meu%20nome%20%C3%A9%20[NOME]%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20disponibilidade." target="_blank" style="display:inline-block;padding:18px 32px;background:#25D366;color:#fff;border-radius:50px;font-weight:bold;font-size:16px;text-decoration:none;box-shadow:0 4px 6px rgba(0,0,0,0.1);">
 
-          <div class="field">
+            💬 Reservar pelo WhatsApp
 
-            <label for="telefone">Telefone</label>
+          </a>
 
-            <input id="telefone" name="telefone" type="tel" placeholder="(11) 99999-9999" required>
+        </div>
 
-          </div>
-
-          <div class="field">
-
-            <label for="email">E-mail</label>
-
-            <input id="email" name="email" type="email" placeholder="voce@exemplo.com" required>
-
-          </div>
-
-          <div class="field">
-
-            <label for="evento">Tipo de evento</label>
-
-            <select id="evento" name="evento">
-
-              <option value="">Selecione...</option>
-
-              <option>Aniversário</option>
-
-              <option>Casamento</option>
-
-              <option>Confraternização</option>
-
-              <option>Formatura</option>
-
-              <option>Outro</option>
-
-            </select>
-
-          </div>
-
-          <div class="field" id="outro-field" style="display:none">
-
-            <label for="outro">Descreva o tipo de evento</label>
-
-            <input id="outro" name="outro" type="text" placeholder="Se 'Outro', descreva">
-
-          </div>
-
-          <div class="field">
-
-            <label for="data">Data do evento</label>
-
-            <input id="data" name="data" type="date" required>
-
-          </div>
-
-          <div class="field">
-
-            <label for="horario_inicio">Horário de início</label>
-
-            <input id="horario_inicio" name="horario_inicio" type="time" required>
-
-          </div>
-
-          <div class="field">
-
-            <label for="horario_fim">Horário de término</label>
-
-            <input id="horario_fim" name="horario_fim" type="time" required>
-
-          </div>
-
-          <div class="field">
-
-            <label for="quantidade">Número de pessoas</label>
-
-            <input id="quantidade" name="quantidade" type="number" placeholder="Quantas pessoas?" min="1" max="999" required>
-
-          </div>
-
-          <div class="form-actions">
-            <button type="submit" class="btn btn-submit">Enviar reserva</button>
-            <button type="button" class="btn" onclick="enviarPorWhatsApp()" style="background:#25D366;color:#fff;border:none;padding:15px 25px;font-size:16px;border-radius:50px;cursor:pointer;box-shadow:0 4px 6px rgba(0,0,0,0.1);">
-              <span style="font-size:18px;">💬</span> Enviar por WhatsApp
-            </button>
-          </div>
-
-        </form>
+      </div>
       </div>
     </div>
   </div>
@@ -1397,58 +1324,15 @@
 
       </div>
 
-      <div class="contact-form">
-
-        <p class="section-label">Envie uma mensagem</p>
-
-        <h2 class="section-title">Mande uma mensagem</h2>
-
-        <p class="sub">Preencha os dados abaixo que entraremos em contato o mais rápido possível.</p>
-
-        <form action="https://formsubmit.co/nenzocalegare@gmail.com" method="POST">
-  <input type="hidden" name="form-name" value="contato">
-  <p style="display:none"><label>Não preencha: <input name="bot-field"></label></p>
-
-          <div class="field">
-
-            <label for="nome">Nome completo</label>
-
-            <input id="nome" type="text" placeholder="Seu nome" required>
-
-          </div>
-
-          <div class="field">
-
-            <label for="telefone">Telefone</label>
-
-            <input id="telefone" type="tel" placeholder="(11) 99999-9999" required>
-
-          </div>
-
-          <div class="field">
-
-            <label for="email">E-mail</label>
-
-            <input id="email" type="email" placeholder="voce@exemplo.com" required>
-
-          </div>
-
-          <div class="field">
-
-            <label for="mensagem">Mensagem</label>
-
-            <textarea id="mensagem" placeholder="Como podemos ajudar?" required></textarea>
-
-          </div>
-
-          <div class="form-actions">
-
-            <button type="submit" class="btn btn-submit">Enviar mensagem</button>
-
-          </div>
-
-        </form>
-
+<div class="contact-form">
+        <p class="section-label">Para fazer sua reserva, fale diretamente com a gente</p>
+        <h2 class="section-title">Reserva pelo WhatsApp</h2>
+        <p class="sub">Clique no botão abaixo e converse diretamente conosco. O seu atendimento será imediato.</p>
+        <div class="whatsapp-btn">
+          <a href="https://wa.me/5511975696266?text=Ol%C3%A1!%20Gostaria%20de%20reservar%20uma%20data%20no%20Skyrooftop.%20Meu%20nome%20%C3%A9%20[NOME]%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20disponibilidade." target="_blank" style="display:inline-block;padding:18px 32px;background:#25D366;color:#fff;border-radius:50px;font-weight:bold;font-size:16px;text-decoration:none;box-shadow:0 4px 6px rgba(0,0,0,0.1);">
+            💬 Reservar pelo WhatsApp
+          </a>
+        </div>
       </div>
 
     </div>
@@ -1569,6 +1453,34 @@
       outroField.style.display = 'none';
     }
   });
+
+  // WhatsApp button - send reservation data via WhatsApp
+  function enviarPorWhatsApp() {
+    const nome = document.getElementById('nome')?.value || '';
+    const telefone = document.getElementById('telefone')?.value || '';
+    const email = document.getElementById('email')?.value || '';
+    const evento = document.getElementById('evento')?.value || '';
+    const outro = document.getElementById('outro')?.value || '';
+    const data = document.getElementById('data')?.value || '';
+    const horarioInicio = document.getElementById('horario_inicio')?.value || '';
+    const horarioFim = document.getElementById('horario_fim')?.value || '';
+    const quantidade = document.getElementById('quantidade')?.value || '';
+
+    let mensagem = `👋 Olá! Sou ${nome || 'Cliente'} e gostaria de reservar no Skyrooftop:\n\n`;
+    mensagem += `📞 Telefone: ${telefone}\n`;
+    mensagem += `📧 E-mail: ${email}\n`;
+    mensagem += `📅 Data: ${data || 'Não informada'}\n`;
+    mensagem += `⏰ Horário: ${horarioInicio} - ${horarioFim}\n`;
+    mensagem += `👥 Pessoas: ${quantidade || 'Não informado'}\n`;
+    mensagem += `🎉 Tipo de evento: ${evento || 'Não informado'}\n`;
+    if (outro) {
+      mensagem += `📝 Outro: ${outro}\n`;
+    }
+    mensagem += `\nOlá! Gostaria de reservar no Skyrooftop. Veja os dados abaixo:`;
+
+    const url = `https://wa.me/5511975696266?text=${encodeURIComponent(mensagem)}`;
+    window.open(url, '_blank');
+  }
 
 </script>
 

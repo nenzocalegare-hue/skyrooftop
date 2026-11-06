@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="pt-BR">
 
@@ -693,14 +693,6 @@
 
   .contact-form form{display:grid;gap:18px}
 
-  .whatsapp-btn{display:block;text-align:center;padding:30px 0}
-
-  .whatsapp-btn a{display:inline-block;padding:18px 32px;background:#25D366;color:#fff;border-radius:50px;font-weight:bold;font-size:16px;text-decoration:none;box-shadow:0 4px 6px rgba(0,0,0,0.1);text-align:center;max-width:100%}
-
-  .whatsapp-btn a:hover{background:#1ebe5a}
-
-  .field{display:grid;gap:6px}
-
   .field{display:grid;gap:6px}
 
   .field label{font-size:13px;color:var(--muted);font-weight:500}
@@ -770,6 +762,18 @@
   }
 
   .btn-submit:hover{background:var(--gold-soft)}
+
+  .btn-whatsapp{
+    background:#25D366;
+    color:#fff !important;
+    border:none;
+    padding:16px 30px;border-radius:999px;
+    font-weight:600;
+    font-size:15px;
+    cursor:pointer;
+    transition:.25s
+  }
+  .btn-whatsapp:hover{background:#1ebe5a;color:#fff !important}
 
 
 
@@ -1097,25 +1101,107 @@
 
       </div>
 
-      <div class="contact-form">
+      <div class="reserve-form">
 
-        <p class="section-label">Para fazer sua reserva, fale diretamente com a gente</p>
+        <form id="reserveForm" method="POST" name="reserva">
+  <input type="hidden" name="form-name" value="reserva">
+  <p style="display:none"><label>Não preencha: <input name="bot-field"></label></p>
 
-        <h2 class="section-title">Reserva pelo WhatsApp</h2>
+          <div class="field">
 
-        <p class="sub">Clique no botão abaixo e converse diretamente conosco. O seu atendimento será imediato.</p>
+            <label for="nome">Nome completo</label>
 
-        <div class="whatsapp-btn">
+            <input id="nome" name="nome" type="text" placeholder="Seu nome" required>
 
-          <a href="https://wa.me/5511975696266?text=Ol%C3%A1!%20Gostaria%20de%20reservar%20uma%20data%20no%20Skyrooftop.%20Meu%20nome%20%C3%A9%20[NOME]%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20disponibilidade." target="_blank" style="display:inline-block;padding:18px 32px;background:#25D366;color:#fff;border-radius:50px;font-weight:bold;font-size:16px;text-decoration:none;box-shadow:0 4px 6px rgba(0,0,0,0.1);">
+          </div>
 
-            💬 Reservar pelo WhatsApp
+          <div class="field">
 
-          </a>
+            <label for="telefone">Telefone</label>
 
-        </div>
+            <input id="telefone" name="telefone" type="tel" placeholder="(11) 99999-9999" required>
 
-      </div>
+          </div>
+
+          <div class="field">
+
+            <label for="email">E-mail</label>
+
+            <input id="email" name="email" type="email" placeholder="voce@exemplo.com" required>
+
+          </div>
+
+          <div class="field">
+
+            <label for="evento">Tipo de evento</label>
+
+            <select id="evento" name="evento">
+
+              <option value="">Selecione...</option>
+
+              <option>Aniversário</option>
+
+              <option>Casamento</option>
+
+              <option>Confraternização</option>
+
+              <option>Formatura</option>
+
+              <option>Outro</option>
+
+            </select>
+
+          </div>
+
+          <div class="field" id="outro-field" style="display:none">
+
+            <label for="outro">Descreva o tipo de evento</label>
+
+            <input id="outro" name="outro" type="text" placeholder="Se 'Outro', descreva">
+
+          </div>
+
+          <div class="field">
+
+            <label for="data">Data do evento</label>
+
+            <input id="data" name="data" type="date" required>
+
+          </div>
+
+          <div class="field">
+
+            <label for="horario_inicio">Horário de início</label>
+
+            <input id="horario_inicio" name="horario_inicio" type="time" required>
+
+          </div>
+
+          <div class="field">
+
+            <label for="horario_fim">Horário de término</label>
+
+            <input id="horario_fim" name="horario_fim" type="time" required>
+
+          </div>
+
+          <div class="field">
+
+            <label for="quantidade">Número de pessoas</label>
+
+            <input id="quantidade" name="quantidade" type="number" placeholder="Quantas pessoas?" min="1" max="999" required>
+
+          </div>
+
+          <div class="form-actions">
+
+            <button type="button" class="btn btn-whatsapp" id="btnWhatsAppReserva">
+              <span style="font-size:18px;">💬</span> Enviar reserva pelo WhatsApp
+            </button>
+
+          </div>
+
+        </form>
       </div>
     </div>
   </div>
@@ -1324,15 +1410,58 @@
 
       </div>
 
-<div class="contact-form">
-        <p class="section-label">Para fazer sua reserva, fale diretamente com a gente</p>
-        <h2 class="section-title">Reserva pelo WhatsApp</h2>
-        <p class="sub">Clique no botão abaixo e converse diretamente conosco. O seu atendimento será imediato.</p>
-        <div class="whatsapp-btn">
-          <a href="https://wa.me/5511975696266?text=Ol%C3%A1!%20Gostaria%20de%20reservar%20uma%20data%20no%20Skyrooftop.%20Meu%20nome%20%C3%A9%20[NOME]%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20disponibilidade." target="_blank" style="display:inline-block;padding:18px 32px;background:#25D366;color:#fff;border-radius:50px;font-weight:bold;font-size:16px;text-decoration:none;box-shadow:0 4px 6px rgba(0,0,0,0.1);">
-            💬 Reservar pelo WhatsApp
-          </a>
-        </div>
+      <div class="contact-form reveal">
+
+        <p class="section-label">Envie uma mensagem</p>
+
+        <h2 class="section-title">Mande uma mensagem</h2>
+
+        <p class="sub">Preencha os dados abaixo que entraremos em contato o mais rápido possível.</p>
+
+        <form name="contato" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+  <input type="hidden" name="form-name" value="contato">
+  <p style="display:none"><label>Não preencha: <input name="bot-field"></label></p>
+
+          <div class="field">
+
+            <label for="nome">Nome completo</label>
+
+            <input id="nome" type="text" placeholder="Seu nome" required>
+
+          </div>
+
+          <div class="field">
+
+            <label for="telefone">Telefone</label>
+
+            <input id="telefone" type="tel" placeholder="(11) 99999-9999" required>
+
+          </div>
+
+          <div class="field">
+
+            <label for="email">E-mail</label>
+
+            <input id="email" type="email" placeholder="voce@exemplo.com" required>
+
+          </div>
+
+          <div class="field">
+
+            <label for="mensagem">Mensagem</label>
+
+            <textarea id="mensagem" placeholder="Como podemos ajudar?" required></textarea>
+
+          </div>
+
+          <div class="form-actions">
+
+            <button type="submit" class="btn btn-submit">Enviar mensagem</button>
+
+          </div>
+
+        </form>
+
       </div>
 
     </div>
@@ -1439,9 +1568,45 @@
   }, {threshold:.12});
   revealEls.forEach(el => io.observe(el));
 
-  // reservation form - uses Netlify Forms
-  // The form is configured with data-netlify="true" for automatic email delivery
-  // Email is sent to: nenzocalegare@gmail.com
+  // WhatsApp button - sends the reservation via WhatsApp (no email)
+  const btnWhatsApp = document.getElementById('btnWhatsApp');
+  if (btnWhatsApp) {
+    btnWhatsApp.addEventListener('click', () => {
+      const nome     = document.getElementById('nome').value.trim();
+      const telefone = document.getElementById('telefone').value.trim();
+      const email    = document.getElementById('email').value.trim();
+      const evento   = document.getElementById('evento').value;
+      const outro    = document.getElementById('outro').value.trim();
+      const data     = document.getElementById('data').value;
+      const inicio   = document.getElementById('horario_inicio').value;
+      const fim      = document.getElementById('horario_fim').value;
+      const quantidade = document.getElementById('quantidade').value.trim();
+
+      let tipoEvento = evento;
+      if (evento === 'Outro' && outro) {
+        tipoEvento = outro;
+      }
+
+      const mensagem = [
+        '📝 Nova reserva no Skyrooftop!',
+        '────────────────',
+        '👤 Nome: ' + nome,
+        '📞 Telefone: ' + telefone,
+        '📧 E-mail: ' + email,
+        '🎉 Tipo de evento: ' + tipoEvento,
+        '📅 Data: ' + data,
+        '⏰ Horário: ' + inicio + ' – ' + fim,
+        '👥 Pessoas: ' + quantidade,
+        '────────────────',
+        '⚠️  Por favor, clique em enviar para confirmar a reserva.',
+      ].join('
+');
+
+      const numero = '5511975696266';
+      const url = 'https://wa.me/' + numero + '?text=' + encodeURIComponent(mensagem);
+      window.open(url, '_blank');
+    });
+  }
 
   // show outro field when 'Outro' is selected
   const selectEvento = document.getElementById('evento');
@@ -1454,32 +1619,52 @@
     }
   });
 
-  // WhatsApp button - send reservation data via WhatsApp
-  function enviarPorWhatsApp() {
-    const nome = document.getElementById('nome')?.value || '';
-    const telefone = document.getElementById('telefone')?.value || '';
-    const email = document.getElementById('email')?.value || '';
-    const evento = document.getElementById('evento')?.value || '';
-    const outro = document.getElementById('outro')?.value || '';
-    const data = document.getElementById('data')?.value || '';
-    const horarioInicio = document.getElementById('horario_inicio')?.value || '';
-    const horarioFim = document.getElementById('horario_fim')?.value || '';
-    const quantidade = document.getElementById('quantidade')?.value || '';
+  // WhatsApp button - sends the reservation data via WhatsApp (5511975696266)
+  const btnWhatsAppReserva = document.getElementById('btnWhatsAppReserva');
+  if (btnWhatsAppReserva) {
+    btnWhatsAppReserva.addEventListener('click', () => {
+      const nome     = document.getElementById('nome').value.trim();
+      const telefone = document.getElementById('telefone').value.trim();
+      const email    = document.getElementById('email').value.trim();
+      const evento   = document.getElementById('evento').value;
+      const outro    = document.getElementById('outro').value.trim();
+      const data     = document.getElementById('data').value;
+      const inicio   = document.getElementById('horario_inicio').value;
+      const fim      = document.getElementById('horario_fim').value;
+      const quantidade = document.getElementById('quantidade').value.trim();
 
-    let mensagem = `👋 Olá! Sou ${nome || 'Cliente'} e gostaria de reservar no Skyrooftop:\n\n`;
-    mensagem += `📞 Telefone: ${telefone}\n`;
-    mensagem += `📧 E-mail: ${email}\n`;
-    mensagem += `📅 Data: ${data || 'Não informada'}\n`;
-    mensagem += `⏰ Horário: ${horarioInicio} - ${horarioFim}\n`;
-    mensagem += `👥 Pessoas: ${quantidade || 'Não informado'}\n`;
-    mensagem += `🎉 Tipo de evento: ${evento || 'Não informado'}\n`;
-    if (outro) {
-      mensagem += `📝 Outro: ${outro}\n`;
-    }
-    mensagem += `\nOlá! Gostaria de reservar no Skyrooftop. Veja os dados abaixo:`;
+      // validation: required fields
+      if (!nome) { alert('Por favor, informe seu nome.'); return; }
+      if (!telefone) { alert('Por favor, informe seu telefone.'); return; }
+      if (!email) { alert('Por favor, informe seu e-mail.'); return; }
+      if (!data) { alert('Por favor, informe a data do evento.'); return; }
+      if (!inicio) { alert('Por favor, informe o horário de início.'); return; }
+      if (!fim) { alert('Por favor, informe o horário de término.'); return; }
+      if (!quantidade) { alert('Por favor, informe o número de pessoas.'); return; }
 
-    const url = `https://wa.me/5511975696266?text=${encodeURIComponent(mensagem)}`;
-    window.open(url, '_blank');
+      let tipoEvento = evento;
+      if (evento === 'Outro' && outro) {
+        tipoEvento = outro;
+      }
+
+      const mensagem = [
+        '📝 Nova reserva no Skyrooftop!',
+        '────────────────',
+        '👤 Nome: ' + nome,
+        '📞 Telefone: ' + telefone,
+        '📧 E-mail: ' + email,
+        '🎉 Tipo de evento: ' + tipoEvento,
+        '📅 Data: ' + data,
+        '⏰ Horário: ' + inicio + ' – ' + fim,
+        '👥 Pessoas: ' + quantidade,
+        '────────────────',
+        '⚠️  Por favor, clique em Enviar para confirmar a reserva.',
+      ].join('\n');
+
+      const numero = '5511975696266';
+      const url = 'https://wa.me/' + numero + '?text=' + encodeURIComponent(mensagem);
+      window.open(url, '_blank');
+    });
   }
 
 </script>
@@ -1487,5 +1672,4 @@
 </body>
 
 </html>
-
 

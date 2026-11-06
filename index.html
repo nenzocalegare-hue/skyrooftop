@@ -1103,8 +1103,9 @@
 
       <div class="reserve-form">
 
-        <form id="reserveForm" method="get">
-  <p style="display:none"><em>Este formulário não envia e-mail. Confirmação via WhatsApp.</em></p>
+        <form id="reserveForm" method="POST" name="reserva">
+  <input type="hidden" name="form-name" value="reserva">
+  <p style="display:none"><label>Não preencha: <input name="bot-field"></label></p>
 
           <div class="field">
 
@@ -1455,7 +1456,7 @@
 
           <div class="form-actions">
 
-            <button type="submit" class="btn btn-submit">Enviar mensagem</button>
+            
 
           </div>
 

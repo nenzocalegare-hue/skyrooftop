@@ -992,53 +992,36 @@
 </head>
 
 <script>
-  const btnWhatsAppReserva = document.getElementById('btnWhatsAppReserva');
-  if (btnWhatsAppReserva) {
-    btnWhatsAppReserva.addEventListener('click', () => {
-      const nome     = document.getElementById('nome').value.trim();
-      const telefone = document.getElementById('telefone').value.trim();
-      const email    = document.getElementById('email').value.trim();
-      const evento   = document.getElementById('evento').value;
-      const outro    = document.getElementById('outro').value.trim();
-      const data     = document.getElementById('data').value;
-      const inicio   = document.getElementById('horario_inicio').value;
-      const fim      = document.getElementById('horario_fim').value;
-      const quantidade = document.getElementById('quantidade').value.trim();
-
-      // validation: required fields
-      if (!nome) { alert('Por favor, informe seu nome.'); return; }
-      if (!telefone) { alert('Por favor, informe seu telefone.'); return; }
-      if (!email) { alert('Por favor, informe seu e-mail.'); return; }
-      if (!data) { alert('Por favor, informe a data do evento.'); return; }
-      if (!inicio) { alert('Por favor, informe o horário de início.'); return; }
-      if (!fim) { alert('Por favor, informe o horário de término.'); return; }
-      if (!quantidade) { alert('Por favor, informe o número de pessoas.'); return; }
-
-      let tipoEvento = evento;
-      if (evento === 'Outro' && outro) {
-        tipoEvento = outro;
-      }
-
-      const mensagem = [
-        '📝 Nova reserva no Skyrooftop!',
-        '────────────────',
-        '👤 Nome: ' + nome,
-        '📞 Telefone: ' + telefone,
-        '📧 E-mail: ' + email,
-        '🎉 Tipo de evento: ' + tipoEvento,
-        '📅 Data: ' + data,
-        '⏰ Horário: ' + inicio + ' – ' + fim,
-        '👥 Pessoas: ' + quantidade,
-        '────────────────',
-        '⚠️  Por favor, clique em Enviar para confirmar a reserva.',
-      ].join('\n');
-
-      const numero = '5511975696266';
-      const url = 'https://wa.me/' + numero + '?text=' + encodeURIComponent(mensagem);
-      window.open(url, '_blank');
-    });
-  }
-
+(function(){
+'use strict';
+function init(){
+  var btn=document.getElementById('btnWhatsAppReserva');
+  if(!btn){console.warn('[Skyrooftop] botao nao encontrado');return;}
+  btn.addEventListener('click',function(e){
+    e.preventDefault();
+    function val(id){var el=document.getElementById(id);return el&&typeof el.value==='string'?el.value.trim():'';}
+    var nome=val('nome'),telefone=val('telefone'),email=val('email'),evento=val('evento'),outro=val('outro'),data=val('data'),inicio=val('horario_inicio'),fim=val('horario_fim'),qtd=val('quantidade');
+    var falt=[];if(!nome)falt.push('Nome');if(!telefone)falt.push('Telefone');if(!data)falt.push('Data');if(!inicio)falt.push('Inicio');if(!fim)falt.push('Fim');if(!qtd)falt.push('Quantidade');
+    if(falt.length){alert('Preencha: '+falt.join(', '));return;}
+    var msg='Nova reserva no Skyrooftop!
+--------------------
+Nome: '+nome+'
+Telefone: '+telefone+'
+Email: '+(email||'nao informado')+'
+Evento: '+(evento==='outro'?(outro||'Outro'):evento)+'
+Data: '+data+'
+Horario: '+inicio+' - '+fim+'
+Pessoas: '+qtd+'
+--------------------
+Confirme o envio.';
+    var url='https://wa.me/5511975696266?text='+encodeURIComponent(msg);
+    console.log('[Skyrooftop] Abrindo:',url);
+    window.open(url,'_blank','noopener,noreferrer');
+  });
+  console.log('[Skyrooftop] Handler anexado.');
+}
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+})();
 </script>
 </body>
 

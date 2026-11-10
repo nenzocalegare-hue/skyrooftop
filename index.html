@@ -1582,58 +1582,40 @@
     }
   });
 
-  // WhatsApp button - sends the reservation data via WhatsApp (5511975696266)
-  const btnWhatsAppReserva = document.getElementById('btnWhatsAppReserva');
-  if (btnWhatsAppReserva) {
-    btnWhatsAppReserva.addEventListener('click', function() {
-      // Coletar os dados do formulário de reserva
-      const nome     = document.getElementById('nome')?.value.trim() || '';
-      const telefone = document.getElementById('telefone')?.value.trim() || '';
-      const email    = document.getElementById('email')?.value.trim() || '';
-      const evento   = document.getElementById('evento')?.value || '';
-      const outro    = document.getElementById('outro')?.value.trim() || '';
-      const data     = document.getElementById('data')?.value || '';
-      const inicio   = document.getElementById('horario_inicio')?.value || '';
-      const fim      = document.getElementById('horario_fim')?.value || '';
-      const quantidade = document.getElementById('quantidade')?.value.trim() || '';
+document.getElementById('btnWhatsAppReserva').addEventListener('click', function () {
+  // 1. Coletar os dados do formulário
+  const nome = document.getElementById('nome')?.value.trim() || '';
+  const telefone = document.getElementById('telefone')?.value.trim() || '';
+  const email = document.getElementById('email')?.value.trim() || '';
+  const evento = document.getElementById('evento')?.value || '';
+  const outro = document.getElementById('outro')?.value.trim() || '';
+  const data = document.getElementById('data')?.value || '';
+  const inicio = document.getElementById('horario_inicio')?.value || '';
+  const fim = document.getElementById('horario_fim')?.value || '';
+  const quantidade = document.getElementById('quantidade')?.value.trim() || '';
 
-      // Validação dos campos obrigatórios
-      if (!nome) { alert('Por favor, informe seu nome.'); return; }
-      if (!telefone) { alert('Por favor, informe seu telefone.'); return; }
-      if (!email) { alert('Por favor, informe seu e-mail.'); return; }
-      if (!data) { alert('Por favor, informe a data do evento.'); return; }
-      if (!inicio) { alert('Por favor, informe o horário de início.'); return; }
-      if (!fim) { alert('Por favor, informe o horário de término.'); return; }
-      if (!quantidade) { alert('Por favor, informe o número de pessoas.'); return; }
-
-      // Determinar o tipo de evento
-      let tipoEvento = evento;
-      if (evento === 'Outro' && outro) {
-        tipoEvento = outro;
-      }
-
-      // Montar a mensagem no formato WhatsApp
-      const mensagem = [
-        '📝 Nova reserva no Sky Rooftop!',
-        '────────────────',
-        '👤 Nome: ' + nome,
-        '📞 Telefone: ' + telefone,
-        '📧 E-mail: ' + email,
-        '🎉 Tipo de evento: ' + tipoEvento,
-        '📅 Data: ' + data,
-        '⏰ Horário: ' + inicio + ' – ' + fim,
-        '👥 Pessoas: ' + quantidade,
-        '────────────────',
-        '⚠️  Por favor, clique em Enviar para confirmar a reserva.',
-      ].join('\n');
-
-      // Número do WhatsApp do Sky Rooftop (11 97569-6266)
-      const numero = '5511975696266';
-
-      // Abrir o WhatsApp com a mensagem pré-preenchida
-      window.open('https://wa.me/' + numero + '?text=' + encodeURIComponent(mensagem), '_blank');
-    });
+  // 2. Validar campos obrigatórios (opcional, mas recomendado)
+  if (!nome || !telefone || !data) {
+    alert('Por favor, preencha pelo menos nome, telefone e data.');
+    return;
   }
+
+  // 3. Montar a mensagem
+  let mensagem = `*Nova Reserva - Sky Rooftop*%0A`;
+  mensagem += `*Nome:* ${nome}%0A`;
+  mensagem += `*Telefone:* ${telefone}%0A`;
+  if (email) mensagem += `*E-mail:* ${email}%0A`;
+  mensagem += `*Evento:* ${evento}${outro ? ' - ' + outro : ''}%0A`;
+  mensagem += `*Data:* ${data}%0A`;
+  mensagem += `*Horário:* ${inicio} às ${fim}%0A`;
+  if (quantidade) mensagem += `*Pessoas:* ${quantidade}%0A`;
+
+  // 4. Codificar a mensagem e montar a URL final
+  const url = `https://wa.me/5511975696266?text=${encodeURIComponent(mensagem)}`;
+
+  // 5. Redirecionar a página diretamente para o WhatsApp (evita bloqueio de pop-up)
+  window.location.href = url;
+});
 
 </script>
 

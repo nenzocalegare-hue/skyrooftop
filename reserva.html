@@ -123,51 +123,51 @@
 
   /* reservation form section */
   .reserve-section{
-    padding:clamp(64px,9vh,96px) 0;
+    padding:clamp(48px,7vh,72px) 0;
     background:var(--bg-2);
     position:relative;
     overflow:hidden;
     border-top:1px solid rgba(255,255,255,.05)
   }
   .reserve-inner{
-    display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start;
-    max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,2.5vw,40px)
+    display:grid;grid-template-columns:1.05fr .95fr;gap:32px;align-items:start;
+    max-width:var(--maxw);margin:0 auto;padding:0 clamp(16px,2.5vw,30px)
   }
   .reserve-info h2{
-    font-family:var(--serif);font-weight:700;font-size:clamp(34px,4vw,56px);
-    line-height:1.15;margin-bottom:20px;letter-spacing:-.3px
+    font-family:var(--serif);font-weight:700;font-size:clamp(30px,3.5vw,44px);
+    line-height:1.15;margin-bottom:14px;letter-spacing:-.3px
   }
   .reserve-info p.sub{
-    color:var(--muted);font-size:16px;line-height:1.75;margin-bottom:24px
+    color:var(--muted);font-size:15px;line-height:1.6;margin-bottom:16px
   }
   .reserve-info .pay-items{
-    display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:34px
+    display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px
   }
   .reserve-info .pay-item{
-    display:flex;align-items:center;gap:14px;
+    display:flex;align-items:center;gap:10px;
     background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
-    border-radius:12px;padding:12px 16px;font-size:14px;color:var(--muted)
+    border-radius:12px;padding:10px 14px;font-size:13px;color:var(--muted)
   }
   .reserve-info .pay-item .ic{
-    width:44px;height:44px;border-radius:12px;
+    width:40px;height:40px;border-radius:12px;
     background:rgba(232,185,78,.12);color:var(--gold);
-    display:flex;align-items:center;justify-content:center;font-size:20px
+    display:flex;align-items:center;justify-content:center;font-size:18px
   }
-  .reserve-info .pay-item .ic svg{width:22px;height:22px}
+  .reserve-info .pay-item .ic svg{width:20px;height:20px}
   .reserve-info .pay-item .t{color:var(--paper);font-weight:500}
   .reserve-note{
-    margin-top:24px;padding:16px 18px;
+    margin-top:18px;padding:12px 16px;
     background:rgba(232,185,78,.08);border:1px solid rgba(232,185,78,.25);
-    border-radius:12px;color:var(--gold-soft);font-size:13px;line-height:1.6
+    border-radius:12px;color:var(--gold-soft);font-size:12px;line-height:1.5
   }
-  .reserve-form form{display:grid;gap:18px}
-  .field{display:grid;gap:6px}
-  .field label{font-size:13px;color:var(--muted);font-weight:500}
+  .reserve-form form{display:grid;gap:14px}
+  .field{display:grid;gap:4px}
+  .field label{font-size:12px;color:var(--muted);font-weight:500}
   .field input,.field select,.field textarea{
     background:#000;
     border:1px solid rgba(255,255,255,.18);
-    color:#fff;border-radius:10px;padding:14px 16px;
-    font-family:var(--sans);font-size:15px;outline:none;transition:.2s
+    color:#fff;border-radius:8px;padding:11px 14px;
+    font-family:var(--sans);font-size:14px;outline:none;transition:.2s
   }
   .field input:focus,.field select:focus,.field textarea:focus{
     border-color:var(--gold);
@@ -176,19 +176,19 @@
   .field input::placeholder,.field textarea::placeholder{color:#5a6675}
   .field select{
     appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1 L6 6 L11 1' stroke='%239aa7b4' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
-    background-repeat:no-repeat;background-position:right 16px center;padding-right:42px
+    background-repeat:no-repeat;background-position:right 14px center;padding-right:40px
   }
-  .field textarea{min-height:90px;resize:vertical}
+  .field textarea{min-height:80px;resize:vertical}
   .custom-field{display:none}
   .custom-field.show{display:grid}
   .form-actions{
-    display:flex;gap:14px;flex-wrap:wrap;margin-top:6px;
-    padding-top:20px;border-top:1px solid rgba(255,255,255,.08)
+    display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;
+    padding-top:14px;border-top:1px solid rgba(255,255,255,.08)
   }
   .btn-submit{
     background:var(--gold);color:var(--ink) !important;
-    border:none;padding:16px 32px;border-radius:999px;
-    font-weight:600;font-size:15px;cursor:pointer;transition:.25s;flex:1 1 220px
+    border:none;padding:12px 26px;border-radius:999px;
+    font-weight:600;font-size:14px;cursor:pointer;transition:.25s;flex:1 1 180px
   }
   .btn-submit:hover{background:var(--gold-soft)}
   .btn-submit:active{transform:scale(.98)}

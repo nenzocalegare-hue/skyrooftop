@@ -1601,14 +1601,14 @@ document.getElementById('btnWhatsAppReserva').addEventListener('click', function
   }
 
   // 3. Montar a mensagem
-  let mensagem = `*Nova Reserva - Sky Rooftop*%0A`;
-  mensagem += `*Nome:* ${nome}%0A`;
-  mensagem += `*Telefone:* ${telefone}%0A`;
-  if (email) mensagem += `*E-mail:* ${email}%0A`;
-  mensagem += `*Evento:* ${evento}${outro ? ' - ' + outro : ''}%0A`;
-  mensagem += `*Data:* ${data}%0A`;
-  mensagem += `*Horário:* ${inicio} às ${fim}%0A`;
-  if (quantidade) mensagem += `*Pessoas:* ${quantidade}%0A`;
+  let mensagem = `*Nova Reserva - Sky Rooftop*\n`;
+  mensagem += `*Nome:* ${nome}\n`;
+  mensagem += `*Telefone:* ${telefone}\n`;
+  if (email) mensagem += `*E-mail:* ${email}\n`;
+  mensagem += `*Evento:* ${evento}${outro ? ' - ' + outro : ''}\n`;
+  mensagem += `*Data:* ${data}\n`;
+  mensagem += `*Horário:* ${inicio} às ${fim}\n`;
+  if (quantidade) mensagem += `*Pessoas:* ${quantidade}\n`;
 
   // 4. Codificar a mensagem e montar a URL final
   const url = `https://wa.me/5511975696266?text=${encodeURIComponent(mensagem)}`;

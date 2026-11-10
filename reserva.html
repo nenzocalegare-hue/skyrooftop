@@ -212,8 +212,32 @@
     background:rgba(232,185,78,.15);color:var(--gold);font-weight:700;
     display:flex;align-items:center;justify-content:center
   }
+  .landscape{
+    position:relative;
+    border-radius:var(--radius);
+    overflow:hidden;
+    margin-top:24px;
+    box-shadow:0 8px 24px rgba(0,0,0,.4);
+  }
+  .landscape .tint{
+    position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(232,185,78,.85), rgba(232,185,78,.2));
+  }
+  .landscape .badge{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    font-size:13px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#fff;
+    padding:10px 18px;
+    border-radius:999px;
+    background:rgba(11,14,20,.78);
+    backdrop-filter:blur(8px);
+  }
   .landscape-img{
-    width:65%;
+    width:100%;
     height:auto;
     display:block;
     border-radius:var(--radius);
@@ -380,7 +404,7 @@
                 <option>Outro</option>
               </select>
             </div>
-            <div class="field">
+            <div class="field custom-field" id="outro-field">
               <label for="outro">Se outros, descreva</label>
               <input id="outro" type="text" placeholder="Descreva o tipo de evento">
             </div>
@@ -418,7 +442,7 @@
         <div class="landscape">
           <div class="tint"></div>
           <div class="badge"><b>Agenda</b> · disponíveis</div>
-          <img class="landscape-img" src="skyrooftop-hero.jpg" alt="Foto do Sky Rooftop">
+          <img class="landscape-img" src="https://nenzocalegare-hue.github.io/skyrooftop/skyrooftop-hero.jpg" alt="Foto do Sky Rooftop">
         </div>
       </div>
     </div>
@@ -434,22 +458,22 @@
     </div>
     <div class="gallery">
       <div class="gallery-item reveal">
-        <div class="img"></div>
+        <div class="img" style="background-image:url('img/01.jpg')"></div>
         <div class="txt"><h4>Iluminação</h4><p>Cenografia em escala de ouro</p></div>
         <div class="num">1</div>
       </div>
       <div class="gallery-item reveal">
-        <div class="img"></div>
+        <div class="img" style="background-image:url('img/02.jpg')"></div>
         <div class="txt"><h4>Fuga ao ar livre</h4><p>Espaço aberto para os maiores eventos</p></div>
         <div class="num">2</div>
       </div>
       <div class="gallery-item reveal">
-        <div class="img"></div>
+        <div class="img" style="background-image:url('img/03.jpg')"></div>
         <div class="txt"><h4>Design</h4><p>Paz de olhos com a cidade</p></div>
         <div class="num">3</div>
       </div>
       <div class="gallery-item reveal">
-        <div class="img"></div>
+        <div class="img" style="background-image:url('img/04.jpg')"></div>
         <div class="txt"><h4>Sucesso</h4><p>Eventos que marcam a memória</p></div>
         <div class="num">4</div>
       </div>
@@ -510,9 +534,9 @@
 
   // tipo de evento "Outro"
   const eventoSelect = document.getElementById('evento');
-  const outroInput = document.getElementById('outro');
+  const outroField = document.getElementById('outro-field');
   eventoSelect.addEventListener('change', () => {
-    outroInput.classList.toggle('show', eventoSelect.value === 'Outro');
+    outroField.classList.toggle('show', eventoSelect.value === 'Outro');
   });
 
   // reservation form - submit normally to formsubmit.co
